@@ -18,13 +18,14 @@ header {
 .max-width-wrapper {
   margin: 0 auto;
   max-width: 800px;
+  padding: 0px 24px;
 }
 
 .intro-chunk {
-  max-width: 450px;
+  max-width: 415px;
   margin-top: 96px;
   margin-bottom: 64px;
-  padding: 24px;
+  padding: -24px;
 
 }
 
@@ -56,18 +57,19 @@ main {
 
 .card {
   background-color: hsla(0, 0%, 100%, 1);
-  padding: 8px 24px 24px 24px;
+  padding: 24px;
+  margin: 0 -24px;
   border-bottom: 8px solid hsla(0, 0%, 60%, 1);
 }
 
 .indented-heading {
   margin: 0;
   margin-left: -32px;
-  
+  margin-top: -16px;
   background-color: hsla(45, 100%, 50%, 1);
-  max-width: 398px;
+  max-width: 415px;
   padding: 16px 32px;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 800;
   line-height: 28.8px;
   border-bottom: 8px solid hsla(45, 100%, 40%, 1);
