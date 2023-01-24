@@ -1,5 +1,5 @@
 # Scrollburglars Exercise
-
+#
 In this exercise, your goal is to find and fix the scrollburglars across 3 different projects.
 
 ## Running the projects
