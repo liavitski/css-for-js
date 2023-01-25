@@ -14,11 +14,11 @@ const Select = ({ label, value, children, ...delegated }) => {
   const displayedValue = selectedChild.props.children;
 
   return (
-    <Wrapper>
+    <Wrapper {...delegated}>
       <VisibleLabel>{label}</VisibleLabel>
 
       <SelectWrapper>
-        <NativeSelect {...delegated}>{children}</NativeSelect>
+        <NativeSelect>{children}</NativeSelect>
 
         <DisplayedBit>
           {displayedValue}
