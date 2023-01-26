@@ -1,13 +1,13 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from "react";
+import styled from "styled-components/macro";
 
-import { COLORS, QUERIES, WEIGHTS } from '../../constants';
-import Icon from '../Icon';
-import UnstyledButton from '../UnstyledButton';
-import Logo from '../Logo';
-import SuperHeader from '../SuperHeader';
-import MobileMenu from '../MobileMenu';
-import VisuallyHidden from '../VisuallyHidden';
+import { COLORS, QUERIES, WEIGHTS } from "../../constants";
+import Icon from "../Icon";
+import UnstyledButton from "../UnstyledButton";
+import Logo from "../Logo";
+import SuperHeader from "../SuperHeader";
+import MobileMenu from "../MobileMenu";
+import VisuallyHidden from "../VisuallyHidden";
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -24,7 +24,7 @@ const Header = () => {
         <LogoWrapper>
           <Logo />
         </LogoWrapper>
-        <DesktopNav> 
+        <DesktopNav>
           <NavLink href="/sale">Sale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
           <NavLink href="/men">Men</NavLink>
@@ -43,7 +43,7 @@ const Header = () => {
             <VisuallyHidden>Search</VisuallyHidden>
           </UnstyledButton>
 
-          <UnstyledButton>
+          <UnstyledButton onClick={() => setShowMobileMenu(true)}>
             <Icon id="menu" />
             <VisuallyHidden>Open menu</VisuallyHidden>
           </UnstyledButton>
@@ -80,7 +80,7 @@ const MainHeader = styled.div`
 
 const DesktopNav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp(1rem, 9.2vw - 4.5rem, 3.5rem);
   margin: 0px 48px;
 
   @media ${QUERIES.tabletAndSmaller} {
@@ -99,7 +99,7 @@ const MobileActions = styled.div`
   @media ${QUERIES.phoneAndSmaller} {
     gap: 16px;
   }
-`
+`;
 
 const LogoWrapper = styled.div`
   flex: 1;
@@ -111,7 +111,7 @@ const LogoWrapper = styled.div`
 
 const ShoppingBagButton = styled(UnstyledButton)`
   transform: translateX(-2px);
-`
+`;
 
 const Filler = styled.div`
   flex: 1;
