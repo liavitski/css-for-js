@@ -1,3 +1,3 @@
-#### In this repo collected all projects from css-for-js super course
+#### In this repo collected all projects from css-for-js course
 
-##### https://css-for-js.dev/
+#####https://css-for-js.dev/
