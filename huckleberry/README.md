@@ -1,5 +1,5 @@
 # Huckleberry Agency Website
-#
+
 In this workshop, you'll build a minimal landing page for an agency.
 
 This mockup is built entirely using _flow layout_: no Flexbox, no grid, no absolute positioning, no media queries. It relies heavily on padding, margin, and border, as well as some of the tricks we learned in Module 1.
@@ -55,6 +55,8 @@ You can visit `http://localhost:9000` to view the page. You should see a bunch o
 - **Pay close attention to alignment.** For example, you should be able to draw a line along the left, and all text should be neatly aligned:
 
 ![Desktop mockup with a vertical line showing alignment](./docs/aligned.png)
+
+(I've made this image semi-transparent to highlight the alignment; see the Figma for a color-accurate reference!)
 
 That said: Don't worry if you can't create a pixel-perfect recreation. In the solution video, I'll show you exactly how I did it. Spend an hour or so on this project, and submit whatever you have at that point.
 

@@ -1,6 +1,7 @@
 .characterEditor {
   padding-top: 128px;
   padding-bottom: 64px;
+  position: relative;
 }
 
 .maxWidthWrapper {
@@ -28,8 +29,8 @@
 .characterWrapper {
   min-height: 500px;
   position: fixed;
-  left: 60%;
   top: 15%;
+  left: 60%;
   bottom: 5%;
 }
 
@@ -41,7 +42,7 @@
   position: fixed;
   top: 60%;
   left: 0;
-  height: 40%;
   width: 100%;
+  height: 40%;
   background-color: hsl(195deg, 20%, 86%);
 }
