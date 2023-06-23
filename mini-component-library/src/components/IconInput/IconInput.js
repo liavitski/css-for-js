@@ -12,39 +12,45 @@ const STYLES = {
     iconSize: 16,
     borderThickness: 1,
     height: 24,
-    padding: 24,
   },
   large: {
     fontSize: 18,
     iconSize: 24,
     borderThickness: 2,
     height: 36,
-    padding: 36,
   },
 };
 
-const IconInput = ({ label, icon, width = 250, size, ...delegated }) => {
+const IconInput = ({
+  label,
+  icon,
+  width = 250,
+  size,
+  ...delegated
+}) => {
   const styles = STYLES[size];
 
   if (!styles) {
-    throw new Error(`Unknown size passed to IconInput: ${size}`);
+    throw new Error(`Unknown style passed to IconInput: ${size}`);
   }
 
   return (
-    <Wrapper>
+    <Wrapper
+      style={{
+        '--height': styles.height + 'px',
+      }}
+    >
       <VisuallyHidden>{label}</VisuallyHidden>
-      <IconWrapper>
-        <Icon id={icon} size={styles.iconSize}/>
+      <IconWrapper style={{ '--size': styles.iconSize + 'px' }}>
+        <Icon id={icon} size={styles.iconSize} />
       </IconWrapper>
       <TextInput
         {...delegated}
         style={{
           '--width': width + 'px',
-          '--fontSize': styles.fontSize + 'px',
-          // '--iconSize': styles.iconSize + 'px',
-          '--borderThickness': styles.borderThickness + 'px',
-          '--heigth': styles.height + 'px',
-          '--padding': styles.padding + 'px',
+          '--height': styles.height + 'px',
+          '--border-thikness': styles.borderThickness + 'px',
+          '--font-size': styles.fontSize + 'px',
         }}
       />
     </Wrapper>
@@ -66,17 +72,16 @@ const IconWrapper = styled.div`
   top: 0;
   bottom: 0;
   margin: auto 0;
-  height: var(--iconSize);
+  height: var(--size);
 `;
 
 const TextInput = styled.input`
   width: var(--width);
   height: var(--height);
-  font-size: var(--fontSize);
+  font-size: var(--font-size);
   border: none;
-  border-bottom: var(--borderThickness) solid ${COLORS.black};
-  outline-offset: 2px;
-  padding-left: var(--padding);
+  border-bottom: var(--border-thikness) solid ${COLORS.black};
+  padding-left: var(--height);
   color: inherit;
   font-weight: 700;
 
