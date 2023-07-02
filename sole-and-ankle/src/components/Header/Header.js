@@ -30,21 +30,21 @@ const Header = () => {
 };
 
 const MainHeader = styled.div`
-  display: flex;
-  align-items: baseline;
-  padding: 18px 32px;
+  padding: 20px 32px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+  display: flex;
   height: 72px;
+  align-items: baseline;
+`;
+
+const Side = styled.div`
+  flex: 1;
 `;
 
 const Nav = styled.nav`
   display: flex;
   gap: 48px;
-  margin: 0px 48px;
-`;
-
-const Side = styled.div`
-  flex: 1;
+  margin: 0 48px;
 `;
 
 const NavLink = styled.a`

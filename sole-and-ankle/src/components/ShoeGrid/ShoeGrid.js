@@ -23,8 +23,9 @@ const Wrapper = styled.div`
 `;
 
 const ShoeWrapper = styled.div`
-  min-width: 225px;
+  min-width: 275px;
   flex: 1;
+  max-width: 450px;
 `;
 
 export default ShoeGrid;
