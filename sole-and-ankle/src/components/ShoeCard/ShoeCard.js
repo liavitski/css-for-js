@@ -14,17 +14,7 @@ const ShoeCard = ({
   releaseDate,
   numOfColors,
 }) => {
-  // There are 3 variants possible, based on the props:
-  //   - new-release
-  //   - on-sale
-  //   - default
-  //
-  // Any shoe released in the last month will be considered
-  // `new-release`. Any shoe with a `salePrice` will be
-  // on-sale. In theory, it is possible for a shoe to be
-  // both on-sale and new-release, but in this case, `on-sale`
-  // will triumph and be the variant used.
-  // prettier-ignore
+
   const variant = typeof salePrice === 'number'
     ? 'on-sale'
     : isNewShoe(releaseDate)
@@ -40,7 +30,6 @@ const ShoeCard = ({
           {variant === 'new-release' && (
             <NewFlag>Just released!</NewFlag>
           )}
-          
         </ImageWrapper>
         <Spacer size={12} />
         <Row>
