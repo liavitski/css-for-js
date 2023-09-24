@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './Footer.module.css';
 
-const Footer = () => {
+function Footer() {
   return (
     <footer className={styles.footer}>
       All character assets taken from{' '}
@@ -16,6 +16,6 @@ const Footer = () => {
       , by Pablo Stanley
     </footer>
   );
-};
+}
 
 export default Footer;
