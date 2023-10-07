@@ -45,5 +45,24 @@
   height: 40%;
   width: 100%;
   bottom: 0;
-  right:0;
+  right: 0;
+}
+
+@media (max-width: 400px) {
+  .header {
+    display: none;
+  }
+  .characterWrapper {
+    left: 10%;
+  }
+  .controlColumn {
+    display: flex;
+    gap: 15px;
+  }
+  .maxWidthWrapper {
+    z-index: 1;
+    top: 300px;
+    padding: 0;
+    
+  }
 }

@@ -39,6 +39,8 @@ function App() {
             controls below. What sort of adventure will you embark on?{' '}
           </p>
         </header>
+
+
         <div className={styles.controlColumn}>
           <ControlPane
             title="Bodies"
