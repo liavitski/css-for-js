@@ -58,6 +58,7 @@
   .controlColumn {
     display: flex;
     gap: 15px;
+    
   }
   .maxWidthWrapper {
     z-index: 1;
