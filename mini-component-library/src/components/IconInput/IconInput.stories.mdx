@@ -27,6 +27,11 @@ import IconInput from './IconInput';
         type: 'text',
       },
     },
+    width: {
+      control: {
+        type: 'number',
+      },
+    },
   }}
 />
 
@@ -35,7 +40,7 @@ export const Template = (args) => <IconInput {...args} />;
 # IconInput
 
 <Story
-  name="IconInput"
+  name="Default"
   args={{
     placeholder: 'Search…',
     label: 'Search',
