@@ -1,14 +1,6 @@
 .buttonRow {
-    margin-left: -22px;
-    margin-right: -22px;
-    margin-bottom: -22px;
-    padding: 24px;
     white-space: nowrap;
-    overflow: auto;
-}
-
-@media (max-width: 400px) {
-    .buttonRow {
-        /* margin-bottom: -60px; */
-    }
+    overflow-x: scroll;
+    margin: 0 -24px;
+    padding: 24px;
 }
