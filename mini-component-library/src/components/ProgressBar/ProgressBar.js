@@ -8,18 +8,18 @@ import VisuallyHidden from '../VisuallyHidden';
 const STYLES = {
   small: {
     height: 8,
-    padding: 0,
     borderRadius: 4,
+    padding: 0,
   },
   medium: {
     height: 12,
-    padding: 0,
     borderRadius: 4,
+    padding: 0,
   },
   large: {
-    height: 16,
-    padding: 4,
+    height: 24,
     borderRadius: 8,
+    padding: 4,
   },
 };
 
@@ -29,51 +29,49 @@ const ProgressBar = ({ value, size }) => {
   if (!styles) {
     throw new Error(`Unknown size passed to ProgressBar: ${size}`);
   }
-
   return (
-    <>
-      <Wrapper
-        role="progressbar"
-        aria-valuenow={value}
-        aria-valuemin="0"
-        aria-valuemax="100"
-        style={{
-          '--padding': styles.padding + 'px',
-          '--borderRadius': styles.borderRadius + 'px',
-        }}
-      >
-        <VisuallyHidden>{value}</VisuallyHidden>
-        <BarWrapper>
-          <Bar
-            style={{
-              '--width': value + '%',
-              '--height': styles.height + 'px',
-            }}
-          />
-        </BarWrapper>
-      </Wrapper>
-    </>
+    <Wrapper
+      role="progressbar"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow={value}
+      style={{
+        '--borderRadius': styles.borderRadius + 'px',
+        '--padding': styles.padding + 'px',
+      }}
+    >
+      {' '}
+      <VisuallyHidden>{value}%</VisuallyHidden>
+      <BarWrapper>
+        <Bar
+          style={{
+            '--height': styles.height + 'px',
+            '--width': value + '%',
+          }}
+        ></Bar>
+      </BarWrapper>
+    </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  background-color: ${COLORS.transparentGray15};
-  border-radius: var(--borderRadius);
-  box-shadow: 0px 2px 4px ${COLORS.transparentGray35} inset;
   padding: var(--padding);
+  width: 100%;
+  background-color: ${COLORS.transparentGray15};
+  box-shadow: inset 0px 2px 4px ${COLORS.transparentGray35};
+  border-radius: var(--borderRadius);
 `;
 
 const BarWrapper = styled.div`
-  /* Trim off corners when progress bar is near full. */
-  overflow: hidden;
   border-radius: 4px;
+  /* Trim-off corners when progress bar near full */
+  overflow: hidden;
 `;
 
 const Bar = styled.div`
-  background-color: ${COLORS.primary};
   height: var(--height);
   width: var(--width);
-  border-radius: 4px 0 0 4px;
+  background-color: ${COLORS.primary};
 `;
 
 export default ProgressBar;
