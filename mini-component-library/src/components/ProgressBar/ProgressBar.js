@@ -25,10 +25,6 @@ const STYLES = {
 
 const ProgressBar = ({ value, size }) => {
   const styles = STYLES[size];
-
-  if (!styles) {
-    throw new Error(`Unknown size passed to ProgressBar: ${size}`);
-  }
   return (
     <Wrapper
       role="progressbar"
@@ -36,17 +32,16 @@ const ProgressBar = ({ value, size }) => {
       aria-valuemax="100"
       aria-valuenow={value}
       style={{
-        '--borderRadius': styles.borderRadius + 'px',
         '--padding': styles.padding + 'px',
+        '--borderRadius': styles.borderRadius + 'px',
       }}
     >
-      {' '}
       <VisuallyHidden>{value}%</VisuallyHidden>
       <BarWrapper>
         <Bar
           style={{
-            '--height': styles.height + 'px',
             '--width': value + '%',
+            '--height': styles.height + 'px',
           }}
         ></Bar>
       </BarWrapper>
@@ -55,16 +50,16 @@ const ProgressBar = ({ value, size }) => {
 };
 
 const Wrapper = styled.div`
-  padding: var(--padding);
-  width: 100%;
   background-color: ${COLORS.transparentGray15};
-  box-shadow: inset 0px 2px 4px ${COLORS.transparentGray35};
   border-radius: var(--borderRadius);
+  overflow: hidden;
+  padding: var(--padding);
 `;
 
 const BarWrapper = styled.div`
   border-radius: 4px;
-  /* Trim-off corners when progress bar near full */
+
+  /* trim-off corners when progress bar near full */
   overflow: hidden;
 `;
 
