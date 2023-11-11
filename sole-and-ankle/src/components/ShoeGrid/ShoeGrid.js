@@ -19,13 +19,12 @@ const ShoeGrid = () => {
 const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 32px;
+  gap: 36px;
 `;
 
 const ShoeWrapper = styled.div`
   min-width: 275px;
   flex: 1;
-  max-width: 450px;
 `;
 
 export default ShoeGrid;
