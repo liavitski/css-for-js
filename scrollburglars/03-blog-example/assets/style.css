@@ -19,12 +19,14 @@ h2 {
   font-weight: bold;
   margin-bottom: 16px;
   margin-top: 48px;
+  
 }
 
 main {
   padding-top: 64px;
   isolation: isolate;
   max-width: 100%;
+  position:relative;
 }
 
 article p,
@@ -112,6 +114,7 @@ a {
 .social-wrapper {
   position: sticky;
   top: 0px;
+  pointer-events: auto;
 }
 
 .social-icons {
@@ -146,11 +149,6 @@ a {
   }
 }
 
-@media (max-width: 750px) {
-  main {
-    overflow: hidden; 
-  }
-}
 
 .heading-decoration {
   position: absolute;
@@ -165,4 +163,19 @@ a {
 
 .heading-content {
   position: relative;
+}
+
+.centered-stuff:not(.floating) {
+  overflow: hidden;
+}
+
+.centered-stuff.floating {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.centered-stuff.floating .max-width-wrapper {
+  height: 100%;
 }
