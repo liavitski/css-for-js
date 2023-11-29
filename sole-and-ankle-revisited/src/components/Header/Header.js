@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components/macro';
 
 import { COLORS, QUERIES, WEIGHTS } from '../../constants';
-import Icon from '../Icon';
-import UnstyledButton from '../UnstyledButton';
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
+import Icon from '../Icon';
+import UnstyledButton from '../UnstyledButton';
 import VisuallyHidden from '../VisuallyHidden';
 
 const Header = () => {
@@ -52,11 +52,24 @@ const Header = () => {
   );
 };
 
+const MobileActions = styled.div`
+  display: none;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    display: flex;
+    gap: 32px;
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    gap: 16px;
+  }
+`;
+
 const MainHeader = styled.div`
   display: flex;
   align-items: baseline;
   padding: 18px 32px;
-
+  height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
 
   @media ${QUERIES.tabletAndSmaller} {
@@ -73,24 +86,11 @@ const MainHeader = styled.div`
 
 const DesktopNav = styled.nav`
   display: flex;
-  gap: clamp(1rem, 9.3vw - 4.75rem, 3rem);
+  gap: 48px;
   margin: 0px 48px;
 
   @media ${QUERIES.tabletAndSmaller} {
     display: none;
-  }
-`;
-
-const MobileActions = styled.div`
-  display: none;
-
-  @media ${QUERIES.tabletAndSmaller} {
-    display: flex;
-    gap: 32px;
-  }
-
-  @media ${QUERIES.phoneAndSmaller} {
-    gap: 16px;
   }
 `;
 

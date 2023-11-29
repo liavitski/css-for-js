@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { COLORS, QUERIES } from '../../constants';
 
 const Breadcrumbs = ({ children }) => {
   return <Wrapper>{children}</Wrapper>;
@@ -22,23 +23,26 @@ const CrumbWrapper = styled.div`
     &::before {
       content: '/';
       margin-right: 8px;
-      color: var(--color-gray-300);
+      color: ${COLORS.gray[300]};
     }
-    
   }
 `;
 
 const CrumbLink = styled.a`
-  color: var(--color-gray-700);
+  color: ${COLORS.gray[700]};
   text-decoration: none;
 
   &:hover {
-    color: var(--color-gray-900);
+    color: ${COLORS.gray[900]};
   }
 `;
 
 const Wrapper = styled.nav`
   display: flex;
   font-size: 0.875rem;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    
+  }
 `;
 export default Breadcrumbs;

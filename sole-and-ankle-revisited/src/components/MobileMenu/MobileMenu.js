@@ -2,15 +2,16 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
-import { QUERIES, COLORS, WEIGHTS } from '../../constants';
+// import * as Dialog from '@radix-ui/react-dialog';
 import UnstyledButton from '../UnstyledButton';
 import Icon from '../Icon';
 import VisuallyHidden from '../VisuallyHidden';
+import { WEIGHTS, COLORS } from '../../constants';
 
 const MobileMenu = ({ isOpen, onDismiss }) => {
   return (
     <Overlay isOpen={isOpen} onDismiss={onDismiss}>
-      <Content aria-label="Menu">
+      <Content>
         <CloseButton onClick={onDismiss}>
           <Icon id="close" />
           <VisuallyHidden>Dismiss menu</VisuallyHidden>
@@ -25,9 +26,9 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
         <Footer>
-          <a href="/terms">Terms and Conditions</a>
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/contact">Contact Us</a>
+          <FooterLink href="/terms">Terms and Conditions</FooterLink>
+          <FooterLink href="/privacy">Privacy Policy</FooterLink>
+          <FooterLink href="/contact">Contact Us</FooterLink>
         </Footer>
       </Content>
     </Overlay>
@@ -36,22 +37,29 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
 
 const Overlay = styled(DialogOverlay)`
   position: fixed;
+  top: 0;
   left: 0;
   right: 0;
-  top: 0;
   bottom: 0;
-  background-color: hsla(220deg 5% 40% / 0.8);
+  background-color: hsl(220deg 5% 40% / 0.8);
   display: flex;
   justify-content: flex-end;
 `;
 
 const Content = styled(DialogContent)`
   background-color: white;
-  height: 100%;
   width: 300px;
-  padding: 32px;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  padding: 32px;
+`;
+
+const CloseButton = styled(UnstyledButton)`
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  padding: 16px;
 `;
 
 const Nav = styled.nav`
@@ -83,11 +91,9 @@ const Footer = styled.footer`
   justify-content: flex-end;
 `;
 
-const CloseButton = styled(UnstyledButton)`
-  position: absolute;
-  top: 10px;
-  right: 0px;
-  padding: 16px;
+const FooterLink = styled.a`
+  color: ${COLORS.gray[700]};
+  text-decoration: none;
 `;
 
 export default MobileMenu;

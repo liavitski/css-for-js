@@ -9,7 +9,7 @@ import Spacer from '../Spacer';
 import ShoeSidebar from '../ShoeSidebar';
 import ShoeGrid from '../ShoeGrid';
 
-const ShoeBreadCrumbs = () => {
+const ShoeBreadcrumbs = () => {
   return (
     <Breadcrumbs>
       <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
@@ -26,7 +26,7 @@ const ShoeIndex = ({ sortId, setSortId }) => {
         <Header>
           <div>
             <MobileBreadcrumbs>
-              <ShoeBreadCrumbs />
+              <ShoeBreadcrumbs />
             </MobileBreadcrumbs>
             <Title>Running</Title>
           </div>
@@ -46,7 +46,7 @@ const ShoeIndex = ({ sortId, setSortId }) => {
       </MainColumn>
       <LeftColumn>
         <DesktopBreadcrumbs>
-          <ShoeBreadCrumbs />
+          <ShoeBreadcrumbs />
         </DesktopBreadcrumbs>
         <Spacer size={42} />
         <ShoeSidebar />
