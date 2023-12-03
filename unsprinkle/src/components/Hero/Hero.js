@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components/macro";
+import React from 'react';
+import styled from 'styled-components/macro';
 
 const Hero = () => {
   return (
@@ -10,7 +10,7 @@ const Hero = () => {
           srcSet={`
             /images/hero-img.avif 1x,
             /images/hero-img@2x.avif 2x,
-            /images/hero-img@3x.avif 3x,
+            /imges/hero-img@3x.avif 3x
           `}
         />
         <source
@@ -18,10 +18,13 @@ const Hero = () => {
           srcSet={`
             /images/hero-img.jpg 1x,
             /images/hero-img@2x.jpg 2x,
-            /images/hero-img@3x.jpg 3x,
+            /imges/hero-img@3x.jpg 3x
           `}
         />
-        <HeroImage alt="Example of the photos distributed through this site (cat on black background)" src="/images/hero-img.jpg" />
+        <HeroImage
+          alt="An example of the photos distributed through the site (cat on black background)"
+          src="/images/hero-img.jpg"
+        />
       </picture>
       <Swoop alt="" src="/swoop.svg" />
     </Wrapper>
