@@ -9,63 +9,10 @@ const Select = ({ label, value, onChange, children }) => {
   const displayedValue = getDisplayedValue(value, children);
 
   return (
-    <Wrapper>
-      <NativeSelect value={value} onChange={onChange}>
-        {children}
-      </NativeSelect>
-      <PresentationBit>
-        {displayedValue}
-        <IconWrapper style={{ '--size': 24 + 'px' }}>
-          <Icon strokeWidth="1" id="chevron-down" size="24" />
-        </IconWrapper>
-      </PresentationBit>
-    </Wrapper>
+    <select value={value} onChange={onChange}>
+      {children}
+    </select>
   );
 };
-
-const Wrapper = styled.div`
-  position: relative;
-  width: max-content;
-`;
-
-const NativeSelect = styled.select`
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  /* Allow the select to span the full height in Safari */
-  appearance: none;
-`;
-
-const PresentationBit = styled.div`
-  color: ${COLORS.gray700};
-  background-color: ${COLORS.transparentGray15};
-  font-size: ${16 / 16}rem;
-  padding: 12px 16px;
-  padding-right: 52px;
-  border-radius: 8px;
-
-  ${NativeSelect}:focus + & {
-    outline: 1px dotted #212121;
-    outline: 5px auto -webkit-focus-ring-color;
-  }
-
-  ${NativeSelect}:hover + & {
-    color: ${COLORS.black};
-  }
-`;
-
-const IconWrapper = styled.div`
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 10px;
-  margin: auto;
-  height: var(--size);
-  width: var(--size);
-  pointer-events: none;
-`;
 
 export default Select;
