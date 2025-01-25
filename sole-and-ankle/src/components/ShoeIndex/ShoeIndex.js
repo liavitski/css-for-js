@@ -50,18 +50,18 @@ const Wrapper = styled.div`
   gap: 32px;
 `;
 
-const LeftColumn = styled.div`
-  flex-basis: 248px;
-`;
-
 const MainColumn = styled.div`
   flex: 1;
 `;
 
+const LeftColumn = styled.div`
+  flex-basis: 248px;
+`;
+
 const Header = styled.header`
   display: flex;
-  justify-content: space-between;
   align-items: baseline;
+  justify-content: space-between;
 `;
 
 const Title = styled.h2`

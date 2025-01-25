@@ -12,15 +12,17 @@ const ShoeGrid = () => {
           <ShoeCard {...shoe} />
         </ShoeWrapper>
       ))}
-    </Wrapper>
+      </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 36px;
-`;
+  gap: 32px;    
+`;   
+
+const name = 'pavel'
 
 const ShoeWrapper = styled.div`
   min-width: 275px;

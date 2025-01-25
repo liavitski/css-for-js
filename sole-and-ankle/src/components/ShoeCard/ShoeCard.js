@@ -25,9 +25,7 @@ const ShoeCard = ({
   // both on-sale and new-release, but in this case, `on-sale`
   // will triumph and be the variant used.
   // prettier-ignore
-  const variant = typeof salePrice === 'number'
-    ? 'on-sale'
-    : isNewShoe(releaseDate)
+  const variant = typeof salePrice === 'number' ? 'on-sale' : isNewShoe(releaseDate)
       ? 'new-release'
       : 'default'
 
@@ -35,11 +33,11 @@ const ShoeCard = ({
     <Link href={`/shoe/${slug}`}>
       <Wrapper>
         <ImageWrapper>
-          <Image alt="" src={imageSrc} />
-          {variant === 'on-sale' && <SaleFlag>On sale</SaleFlag>}
+          {variant === 'on-sale' && <SaleFlag>Sale!</SaleFlag>}
           {variant === 'new-release' && (
-            <ReleaseFlag>New Release!</ReleaseFlag>
+            <NewFlag>New Release</NewFlag>
           )}
+          <Image alt="" src={imageSrc} />
         </ImageWrapper>
         <Spacer size={12} />
         <Row>
@@ -57,9 +55,9 @@ const ShoeCard = ({
         </Row>
         <Row>
           <ColorInfo>{pluralize('Color', numOfColors)}</ColorInfo>
-          {variant === 'on-sale' ? (
+          {variant === 'on-sale' && (
             <SalePrice>{formatPrice(salePrice)}</SalePrice>
-          ) : undefined}
+          )}
         </Row>
       </Wrapper>
     </Link>
@@ -67,25 +65,22 @@ const ShoeCard = ({
 };
 
 const Flag = styled.div`
+  font-size: ${14 / 16}rem;
+  font-weight: ${WEIGHTS.medium};
+  padding: 7px 12px 9px;
   position: absolute;
   top: 12px;
   right: -4px;
-  background-color: red;
-  height: 32px;
-  line-height: 32px;
-  padding: 0 10px;
-  font-size: ${14 / 18}rem;
-  font-weight: ${WEIGHTS.bold};
-  color: ${COLORS.white};
+  color: white;
   border-radius: 2px;
+`;
+
+const NewFlag = styled(Flag)`
+  background-color: ${COLORS.secondary};
 `;
 
 const SaleFlag = styled(Flag)`
   background-color: ${COLORS.primary};
-`;
-
-const ReleaseFlag = styled(Flag)`
-  background-color: ${COLORS.secondary};
 `;
 
 const Link = styled.a`
@@ -97,13 +92,14 @@ const Wrapper = styled.article``;
 
 const ImageWrapper = styled.div`
   position: relative;
-  line-height: 0;
-  border-radius: 16px;
 `;
 
 const Image = styled.img`
   width: 100%;
-  border-radius: 16px 16px 4px 4px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 `;
 
 const Row = styled.div`
@@ -118,8 +114,8 @@ const Name = styled.h3`
 `;
 
 const Price = styled.span`
-  color: var(--color);
   text-decoration: var(--text-decoration);
+  color: var(--color);
 `;
 
 const ColorInfo = styled.p`

@@ -61,7 +61,7 @@ const Wrapper = styled.div`
 `;
 
 const Decorator = styled.div`
-  border-radius: var(--radius);
+  border-radius: 4px;
   overflow: hidden;
 `;
 
@@ -70,6 +70,5 @@ const Bar = styled.div`
   width: var(--progress);
   background-color: ${COLORS.primary};
 `;
-
 
 export default ProgressBar;
