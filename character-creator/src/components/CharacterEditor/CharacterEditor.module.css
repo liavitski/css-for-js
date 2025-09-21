@@ -5,6 +5,15 @@
 }
 
 .maxWidthWrapper {
+  position: relative;
+}
+
+.decorative {
+  background-color: hsl(195deg, 20%, 86%);
+  position: fixed;
+  top: 60%;
+  width: 100%;
+  height: 40%;
 }
 
 .header {
