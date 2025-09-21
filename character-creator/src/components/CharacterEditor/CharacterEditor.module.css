@@ -4,20 +4,10 @@
 }
 
 .maxWidthWrapper {
-  position: relative;
-}
-
-.decorativeBox {
-  background-color: hsl(195deg, 20%, 86%);
-  position: fixed;
-  top: 60%;
-  width: 100%;
-  bottom: 0;
 }
 
 .header {
   padding-bottom: 64px;
-  max-width: 65%;
 }
 
 .title {
@@ -34,13 +24,7 @@
 }
 
 .characterWrapper {
-  position: fixed;
-  min-height: 500px;
-  left: 60%;
-  top: 10%;
-  bottom: 5%;
 }
 
 .controlColumn {
-  max-width: 50%;
 }
