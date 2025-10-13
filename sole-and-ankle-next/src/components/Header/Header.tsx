@@ -1,7 +1,8 @@
 import * as React from 'react';
+import SuperHeader from '../SuperHeader';
 
 function Header() {
-  return <div></div>;
+  return <SuperHeader />;
 }
 
 export default Header;

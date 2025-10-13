@@ -14,7 +14,7 @@ const icons = {
   'chevron-down': ChevronDown,
 };
 
-const Icon = ({ id, color, size, strokeWidth, ...delegated }) => {
+const   Icon = ({ id, color, size, strokeWidth, ...delegated }) => {
   const Component = icons[id];
 
   if (!Component) {

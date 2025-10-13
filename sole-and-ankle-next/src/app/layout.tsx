@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Raleway, Redacted_Script } from 'next/font/google';
 import './styles.css';
+import Header from '@/components/Header';
 
 const primaryFont = Raleway({
   weight: ['500', '600', '800'],
@@ -32,7 +33,10 @@ export default function RootLayout({
         } as React.CSSProperties
       }
     >
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }

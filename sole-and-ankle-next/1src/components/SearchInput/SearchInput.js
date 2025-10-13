@@ -8,7 +8,7 @@ import Icon from '../Icon';
 const SearchInput = ({ label, ...delegated }) => {
   return (
     <Label>
-      <VisuallyHidden>Search</VisuallyHidden>
+      <VisuallyHidden>{label}</VisuallyHidden>
       <Input {...delegated} placeholder="Search…" />
       <SearchIcon id="search" strokeWidth={1} size={16} />
     </Label>
