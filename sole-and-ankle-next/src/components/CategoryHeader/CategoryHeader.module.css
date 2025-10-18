@@ -1,0 +1,11 @@
+.rightColumnHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.rightColumnHeader h2 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--color-gray-900);
+}

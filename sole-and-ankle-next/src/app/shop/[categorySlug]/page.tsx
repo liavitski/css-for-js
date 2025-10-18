@@ -10,7 +10,7 @@ async function CategoryPage({ params }: CategoryPageProps) {
   const { categorySlug } = await params;
   const shoes = await getShoesForCategory(categorySlug);
 
-  return <p>Category page</p>;
+  return <p>hello</p>;
 }
 
 export default CategoryPage;

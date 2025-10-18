@@ -9,7 +9,7 @@ export const COLORS = {
   },
   primary: 'hsl(340deg 65% 47%)',
   secondary: 'hsl(240deg 60% 63%)',
-};
+} as const;
 
 export const CATEGORIES = [
   { slug: 'bestsellers', label: 'Bestsellers' },
@@ -21,4 +21,6 @@ export const CATEGORIES = [
     slug: 'skateboarding',
     label: 'Skateboarding',
   },
-];
+] as const;
+
+export type CategorySlug = (typeof CATEGORIES)[number]['slug'];

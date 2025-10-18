@@ -1,0 +1,17 @@
+.wrapper {
+  font-weight: 600;
+  color: var(--color-gray-900);
+  margin-top: 32px;
+}
+
+.wrapper ul {
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.wrapper a {
+    text-decoration: none;
+    font-size: 1rem;
+}

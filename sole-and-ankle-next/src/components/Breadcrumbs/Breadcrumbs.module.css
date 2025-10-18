@@ -1,0 +1,25 @@
+.breadcrumbsWrapper ol {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.breadcrumbsWrapper li {
+  display: inline;
+}
+
+
+.breadcrumbsWrapper li + li::before {
+  display: inline-block;
+  margin: 0 0.65em;
+  transform: rotate(15deg);
+  border-right: 0.1em solid var(--color-gray-700);
+  height: 0.6em;
+  content: '';
+}
+
+.crumbLink {
+  text-decoration: none;
+  color: var(--color-gray-700);
+}

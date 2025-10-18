@@ -7,6 +7,7 @@ const Breadcrumbs = ({ children }) => {
   return <Wrapper>{children}</Wrapper>;
 };
 
+// eslint-disable-next-line react/display-name
 Breadcrumbs.Crumb = ({ href, children, delegated }) => {
   return (
     <CrumbWrapper>
