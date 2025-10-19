@@ -8,14 +8,13 @@ function CategorySidebar({
 }: {
   selectedCategory: CategorySlug;
 }) {
-
   return (
     <aside className={styles.wrapper}>
       <nav>
         <ul>
           {CATEGORIES.map(({ slug, label }) => (
             <Link
-              href={'/'}
+              href={`/shop/${slug}`}
               key={slug}
               style={{
                 color:

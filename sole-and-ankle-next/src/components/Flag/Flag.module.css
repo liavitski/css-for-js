@@ -1,0 +1,21 @@
+.wrapper {
+  position: absolute;
+  top: 12px;
+  right: -4px;
+  border-radius: 2px;
+  color: var(--color-white);
+  font-weight: 700;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.newRelease {
+  background-color: var(--color-secondary);
+}
+
+.onSale {
+  background-color: var(--color-primary);
+}

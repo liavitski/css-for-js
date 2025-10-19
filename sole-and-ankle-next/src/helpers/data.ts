@@ -1,3 +1,5 @@
+import type { CategorySlug } from '@/constants';
+
 export type Category = {
   slug: string;
   name: string;
@@ -6,16 +8,14 @@ export type Category = {
   salePrice: number | null;
   releaseDate: number;
   numOfColors: number;
-  categories: string[];
+  categories: CategorySlug[];
 };
 
 // Simulated database request
-export async function getShoesForCategory(category: string) {
+export async function getShoesForCategory(category: CategorySlug) {
   await delay(2000);
 
-  return SHOES.filter((shoe) =>
-    shoe.categories.includes(category.toLowerCase())
-  );
+  return SHOES.filter((shoe) => shoe.categories.includes(category));
 }
 
 const delay = (ms: number) =>
@@ -23,30 +23,14 @@ const delay = (ms: number) =>
 
 const SHOES: Category[] = [
   {
-    slug: 'af1',
-    name: 'Nike Air Force 1 ‘07',
-    imageSrc: '/assets/af1.webp',
-    price: 14500,
-    salePrice: 12000,
-    releaseDate: Date.now() - 1000 * 60 * 60 * 24 * 120,
-    numOfColors: 2,
-    categories: [
-      'basketball',
-      'skateboarding',
-      'lifestyle',
-      'bestsellers',
-    ],
-  },
-  {
     slug: 'tech-challenge',
     name: 'NikeCourt Tech Challenge 20',
     imageSrc: '/assets/tech-challenge.jpg',
     price: 16500,
     salePrice: null,
-    // 1 hour ago! 🔥
     releaseDate: Date.now() - 1000 * 60 * 60 * 1,
     numOfColors: 2,
-    categories: ['basketball', 'training'],
+    categories: ['bestsellers', 'lifestyle', 'training'],
   },
   {
     slug: 'metcon-5',
@@ -56,7 +40,7 @@ const SHOES: Category[] = [
     salePrice: null,
     releaseDate: Date.now() - 1000 * 60 * 60 * 24 * 2,
     numOfColors: 1,
-    categories: ['running', 'bestsellers'],
+    categories: ['training', 'bestsellers'],
   },
   {
     slug: 'phantom',
@@ -66,7 +50,7 @@ const SHOES: Category[] = [
     salePrice: null,
     releaseDate: Date.now() - 1000 * 60 * 60 * 24 * 4,
     numOfColors: 4,
-    categories: ['training  ', 'running'],
+    categories: ['lifestyle', 'training'],
   },
   {
     slug: 'pegasus',
@@ -76,7 +60,7 @@ const SHOES: Category[] = [
     salePrice: null,
     releaseDate: Date.now() - 1000 * 60 * 60 * 24 * 16,
     numOfColors: 1,
-    categories: ['bestsellers', 'skateboarding'],
+    categories: ['running', 'bestsellers', 'training'],
   },
   {
     slug: 'joyride',
@@ -86,7 +70,7 @@ const SHOES: Category[] = [
     salePrice: null,
     releaseDate: Date.now() - 1000 * 60 * 60 * 24 * 40,
     numOfColors: 2,
-    categories: ['running', 'basketball', 'bestsellers'],
+    categories: ['running', 'lifestyle'],
   },
   {
     slug: 'legend-academy',
@@ -96,7 +80,7 @@ const SHOES: Category[] = [
     salePrice: 12500,
     releaseDate: Date.now() - 1000 * 60 * 60 * 24 * 50,
     numOfColors: 8,
-    categories: ['lifestyle', 'training'],
+    categories: ['bestsellers', 'training', 'lifestyle'],
   },
   {
     slug: 'react-infinity',
@@ -106,7 +90,7 @@ const SHOES: Category[] = [
     salePrice: 14500,
     releaseDate: Date.now() - 1000 * 60 * 60 * 24 * 75,
     numOfColors: 1,
-    categories: ['bestsellers', 'running', 'training'],
+    categories: ['running', 'training'],
   },
   {
     slug: 'phantom-flyknit',
@@ -116,7 +100,7 @@ const SHOES: Category[] = [
     salePrice: 16000,
     releaseDate: Date.now() - 1000 * 60 * 60 * 24 * 100,
     numOfColors: 4,
-    categories: ['running', 'training', 'lifestyle'],
+    categories: ['running', 'lifestyle', 'bestsellers'],
   },
   {
     slug: 'lebron',
@@ -126,62 +110,7 @@ const SHOES: Category[] = [
     salePrice: null,
     releaseDate: Date.now() - 1000 * 60 * 60 * 24 * 120,
     numOfColors: 1,
-    categories: ['basketball', 'skateboarding'],
-  },
-  {
-    slug: 'flyease',
-    name: 'Nike Go FlyEase',
-    imageSrc: '/assets/flyease.webp',
-    price: 16500,
-    salePrice: null,
-    releaseDate: Date.now() - 1000 * 60 * 60 * 24 * 5,
-    numOfColors: 2,
-    categories: ['training', 'running', 'lifestyle'],
-  },
-  {
-    slug: 'air-jordan-low',
-    name: 'Air Jordan 1 Low',
-    imageSrc: '/assets/air-jordan-low.webp',
-    price: 14500,
-    salePrice: null,
-    releaseDate: Date.now() - 1000 * 60 * 60 * 24 * 15,
-    numOfColors: 1,
-    categories: [
-      'training',
-      'lifestyle',
-      'basketball',
-      'skateboarding',
-    ],
-  },
-  {
-    slug: 'air-jordan-mid',
-    name: 'Air Jordan 1 Mid',
-    imageSrc: '/assets/air-jordan-mid.webp',
-    price: 16500,
-    salePrice: null,
-    releaseDate: Date.now() - 1000 * 60 * 60 * 24 * 15,
-    numOfColors: 1,
-    categories: ['training', 'lifestyle', 'basketball'],
-  },
-  {
-    slug: 'air-force-1-shadow',
-    name: 'Nike Air Force 1 Shadow',
-    imageSrc: '/assets/air-force-1-shadow.webp',
-    price: 17000,
-    salePrice: null,
-    releaseDate: Date.now() - 1000 * 60 * 60 * 24 * 2,
-    numOfColors: 2,
-    categories: ['bestsellers', 'running', 'skateboarding'],
-  },
-  {
-    slug: 'nike-free-metcon-5',
-    name: 'Nike Free Metcon 5',
-    imageSrc: '/assets/nike-free-metcon-5.webp',
-    price: 16000,
-    salePrice: 15000,
-    releaseDate: Date.now() - 1000 * 60 * 60 * 24 * 30,
-    numOfColors: 5,
-    categories: ['lifestyle', 'running', 'training'],
+    categories: ['basketball', 'bestsellers', 'lifestyle'],
   },
 ];
 

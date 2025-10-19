@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Raleway, Redacted_Script } from 'next/font/google';
 import './styles.css';
 import Header from '@/components/Header';
+import MaxWidthWrapper from '@/components/MaxWidthWrapper';
 
 const primaryFont = Raleway({
   weight: ['500', '600', '800'],
@@ -33,10 +34,12 @@ export default function RootLayout({
         } as React.CSSProperties
       }
     >
-      <body>
-        <Header />
-        {children}
-      </body>
+
+        <body>
+          <Header />
+          {children}
+        </body>
+
     </html>
   );
 }

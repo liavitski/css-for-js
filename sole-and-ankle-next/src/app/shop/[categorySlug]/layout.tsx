@@ -1,13 +1,11 @@
 import React from 'react';
 import styles from './CategoryLayout.module.css';
-import { CATEGORIES } from '@/constants';
+import { CategorySlug, CATEGORIES } from '@/constants';
 
 import CategorySidebar from '@/components/CategorySidebar';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import MaxWidthWrapper from '@/components/MaxWidthWrapper';
 import CategoryHeader from '@/components/CategoryHeader';
-
-type CategorySlug = (typeof CATEGORIES)[number]['slug'];
 
 export type CategoryLayoutProps = {
   params: { categorySlug: CategorySlug };
@@ -26,14 +24,14 @@ async function CategoryLayout({
 
   if (!matchedCategory) {
     return (
-      <MaxWidthWrapper>
-        <p>Category not found.</p>
+      <MaxWidthWrapper className="desktop">
+        <p className={styles.notFound}>Category not found.</p>
       </MaxWidthWrapper>
     );
   }
 
   return (
-    <MaxWidthWrapper>
+    <MaxWidthWrapper className="desktop">
       <main className={styles.wrapper}>
         <div className={styles.mainColumn}>
           <CategoryHeader categoryLabel={matchedCategory.label} />

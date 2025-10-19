@@ -22,7 +22,7 @@ function Spacer({ axis = 'vertical', size = 8 }: SpacerProps) {
           minHeight: `${size}px`,
         };
 
-  return <span className={styles.spacer} style={style} />;
+  return <span className={styles.spacerStyle} style={style} />;
 }
 
 export default Spacer;

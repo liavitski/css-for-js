@@ -14,7 +14,7 @@ const MaxWidthWrapper = ({
 }: MaxWidthWrapperProps) => {
   return (
     <div
-      className={`${styles.maxWidthWrapper} ${className}`}
+      className={`${styles.maxWidthWrapper} ${styles[className]}`}
       {...delegated}
     >
       {children}

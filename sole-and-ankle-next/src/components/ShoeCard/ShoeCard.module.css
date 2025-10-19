@@ -1,0 +1,47 @@
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.wrapper {
+}
+
+.imageWrapper {
+  position: relative;
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px 16px 4px 4px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.name {
+  font-weight: 600;
+  color: var(--color-gray-900);
+}
+
+.price {
+  font-weight: 500;
+}
+
+.oldPrice {
+  color: var(--color-gray-700);
+  text-decoration: line-through;
+}
+
+.newPrice {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.colorInfo {
+  font-weight: 500;
+  color: var(--color-gray-700);
+}

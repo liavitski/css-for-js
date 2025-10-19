@@ -10,7 +10,7 @@ import MaxWidthWrapper from '../MaxWidthWrapper';
 function SuperHeader() {
   return (
     <div className={styles.outerWrapper}>
-      <MaxWidthWrapper>
+      <MaxWidthWrapper className="desktop">
         <div className={styles.wrapper}>
           <span className={styles.marketingMsg}>
             Free shipping on domestic orders over 75$!

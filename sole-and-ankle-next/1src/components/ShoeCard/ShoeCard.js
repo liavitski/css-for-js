@@ -37,7 +37,9 @@ const ShoeCard = ({
         <ImageWrapper>
           <Image alt="" src={imageSrc} />
         </ImageWrapper>
+
         <Spacer size={12} />
+        
         <Row>
           <Name>{name}</Name>
           <Price>{formatPrice(price)}</Price>

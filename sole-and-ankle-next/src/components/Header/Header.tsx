@@ -10,7 +10,7 @@ function Header() {
     <>
       <SuperHeader />
       <div className={styles.outerWrapper}>
-        <MaxWidthWrapper>
+        <MaxWidthWrapper className="desktop">
           <div className={styles.wrapper}>
             <div className={styles.decorative}>
               <Logo />
