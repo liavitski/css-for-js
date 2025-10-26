@@ -13,17 +13,19 @@ function CategoryHeader({ categoryLabel }: CategoryHeaderProps) {
   return (
     <div className={styles.rightColumnHeader}>
       <h2>{categoryLabel}</h2>
-      <Select
-        label="Sort"
-        value={sortId}
-        onChange={(ev: React.ChangeEvent<HTMLSelectElement>) =>
-          setSortId(ev.target.value)
-        }
-      >
-        <option value="newest">New Releases</option>
-        <option value="price-low">Price (low to high)</option>
-        <option value="price-high">Price (high to low)</option>
-      </Select>
+      <div className={styles.sortFilterWrapper}>
+        <Select
+          label="Sort"
+          value={sortId}
+          onChange={(ev: React.ChangeEvent<HTMLSelectElement>) =>
+            setSortId(ev.target.value)
+          }
+        >
+          <option value="newest">New Releases</option>
+          <option value="price-low">Price (low to high)</option>
+          <option value="price-high">Price (high to low)</option>
+        </Select>
+      </div>
     </div>
   );
 }

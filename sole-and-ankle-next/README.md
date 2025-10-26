@@ -1,103 +1,122 @@
-# Sole&Ankle — Module 4 workshop
+# Sole&Ankle, Revisited — Module 5 workshop
 
-In this workshop, our goal is to finish building an e-commerce store!
+In the Flexbox module, we built an e-commerce store:
 
-The good news is, most of our work is done already. We just need to write some additional CSS to construct the layout; things are a bit messy right now!
+![A screenshot of the original Flexbox module workshop](./docs/original-desktop.png)
 
-- Access the Figma: https://www.figma.com/file/kAL3AumTUV11y1IqHhltB6/Sole-and-Ankle-%E2%80%94-Mockup
+In this workshop, we'll make this application responsive, so that it looks great and works well on phones and tablets:
 
-This project uses Create React App. To get started, run the following terminal commands:
+![A GIF showing how the design changes across viewport widths](./docs/resize-demo.gif)
 
-- `npm install`
-- `npm run start`
+The design can be found on Figma:
 
-You can then visit the app in-browser; it defaults to http://localhost:3000.
+- https://www.figma.com/file/kAL3AumTUV11y1IqHhltB6/Sole-and-Ankle-%E2%80%94-Mockup
 
-_Note that we're only focusing on the design._ The links and inputs don't do anything.
+We'll use a **desktop-first** approach for this process, and our breakpoints will be set as follows:
 
-> **Want a bigger challenge?**
->
-> This workshop comes with a lot of starter code — we'll be adding
-> Flex-specific properties, but for the most part, we don't have a
-> ton of code to write. If you'd prefer, you can build the app from
-> scratch, to practice all the CSS we've learned so far!
->
-> If you go that route, you can find the sneaker assets you need in
-> `/public/assets`, and their metadata in `/src/data.js`. Design
-> tokens can be found in `/src/constants`. The custom font is
-> Raleway, from Google Fonts.
+| Name   | Width (px) | Width (rem) |
+| ------ | ---------- | ----------- |
+| phone  | 600        | 37.5        |
+| tablet | 950        | 59.375      |
+| laptop | 1300       | 81.25       |
 
 ## Troubleshooting
 
 If you run into problems running a local development server, check out our [Troubleshooting Guide](https://courses.joshwcomeau.com/troubleshooting) on the course platform.
 
-This guide addresses the common `Digital Envelope Routine` error you may have seen.
-
 ---
 
-## Exercise 1: Superheader
+## Exercise 1: Set up our breakpoints
 
-Let's build the “Superheader” a thin grey strip that runs along the top of the page:
+Before we start tweaking the UI, let's add some structure to make it easy for us to use media queries.
 
-![Close-up screenshot of the superheader](./docs/exercise-1-solution.png)
+It's up to you how you'd like to structure it! You can use the strategy discussed in [the “breakpoints” lesson](https://courses.joshwcomeau.com/css-for-js/05-responsive-css/07-breakpoints#managing-breakpoints), or you can use [styled-components' “theming” feature](https://styled-components.com/docs/advanced#theming).
 
-Use Flexbox to correctly align the elements within `src/components/SuperHeader`.
+Whichever approach you choose, your breakpoints should be specified in rems (not pixels). I suggest storing them in the `/src/constants.js` file.
 
-## Exercise 2: Header
+This first exercise is about setup. We’ll use these breakpoints in the subsequent exercises.
 
-Continuing on down, let's tackle the main header:
+## Exercise 2: Mobile header
 
-![Close-up screenshot of the header and superheader](./docs/exercise-2-solution.png)
+On smaller screens, we want to switch up our header:
 
-The trickiest part of this exercise is the _position of the main navigation_. We want it to be perfectly centered within the container:
+![Close-up screenshot of the new header](./docs/mobile-header.png)
 
-![Screenshot showing the position of the navigation within the header](./docs/nav-position.png)
+Our `SuperHeader` is removed, replaced with a decorative dark-gray line. The `Header`'s navigation is replaced by 3 icon buttons.
 
-This is a thorny problem, and it's not something we've explicitly seen in the course. Give it your best shot, but please don't be discouraged if you can't figure it out!
+On mobile, a lot of the spacing gets tightened up.
 
-## Exercise 3: Shell
+**I recommend checking your work on a real mobile device.** You can use ngrok, as described in [the “Mobile Testing” lesson](https://courses.joshwcomeau.com/css-for-js/05-responsive-css/03-mobile-testing).
 
-Next up, we want to tackle the "framing" around the shoe grid — the sidebar and title/filter.
+## Exercise 3: Tweaks to our main view
 
-![Screenshot of the store, with everything except the sneaker grid](./docs/exercise-3-solution.png)
+On portrait tablet, our left-hand column disappears.
 
-_NOTE:_ To make life a bit easier, you may wish to comment out the `<ShoeGrid>` component. We'll work on integrating it in the next exercise.
+The categories are really more of a nice-to-have, so they're removed. The breadcrumbs, though, are important for navigation, so they move to sit just above the category heading:
 
-## Exercise 4: Shoe Grid
+![Screenshot of the new breadcrumbs on tablet/phone](./docs/tablet-breadcrumbs.png)
 
-This exercise features two mini-challenges. The second one is a chance to revisit some of the lessons learned in previous modules, and isn't as specific to Flexbox.
+On mobile, we lose the "Sort" filter as well:
 
-### 4A: Grid layout
+![Screenshot of the top part of the screen on mobile, showing a gap where the “sort” filter was](./docs/mobile-no-sort-filter.png)
 
-Time to tackle the main feature of this application, the shoes!
+## Exercise 4: Mobile menu
 
-Here's a screenshot of the final result:
+Alright, let's implement the hamburger menu!
 
-![Screenshot of the store, with sneaker grid](./docs/exercise-4a-solution.png)
+For convenience, a new component has been created for you, `MobileMenu`. It's not really a modal yet, though. Your job is to make it look _and_ act like a modal, so that clicking on the hamburger menu opens the mobile navigation.
 
-This is a tricky problem to solve with Flexbox—CSS Grid is a better tool for this job! Nevertheless, it can be done using Flexbox, with one caveat: the last row may be oversized:
+You'll need to update the hamburger-menu button we added in Exercise 2 to flip `showMobileMenu` to `true`.
 
-![Screenshot of the shoe grid with one enormous sneaker, spanning 4 typical columns](./docs/giant-sneaker.png)
+Earlier in this module, we saw how to [build an accessible modal component](https://courses.joshwcomeau.com/css-for-js/05-responsive-css/05-exercises#bonus-building-accessible-modals) using Reach UI. Sadly, Reach UI is no longer actively maintained, so for this exercise, we’ll use Radix Primitives instead.
 
-In a future module, we'll revisit this and see how CSS Grid can help us out :)
+**This is a particularly tricky challenge.** It will involve a substantial amount of React-specific work, reading the Radix documentation and figuring out how to apply it in this project. If you haven’t worked with React much, I recommend skipping this exercise.
 
-## 4B: Final touches
+This repository already has Radix Primitives installed. Here’s the relevant page from their documentation:
 
-Our sneaker store is in pretty good shape, but there's two small details missing:
+- https://www.radix-ui.com/primitives/docs/components/dialog
 
-1. The “Sale” and “Just Released” flags.
-1. The crossed-out prices, for items that are on sale.
+## Exercise 5: Fluid desktop navigation
 
-Inside `ShoeCard.js`, you'll find a `variant` variable you can use to figure out which flag, if any, needs to be rendered. It's up to you to create the flag, using styled-components.
+As it stands, our desktop navigation disappears _just_ before it runs out of space:
 
-For the crossed-out prices, you can use the `price` and `salePrice` props.
+![Close-up GIF of the header. As the window shrinks, the layout changes just before the nav hits the edge](./docs/nav-barely-fits.gif)
 
-![Screenshot of the store, with the final details added](./docs/exercise-4b-solution.png)
+What happens, though, if our Marketing friends rename the categories? Or, what happens when we internationalize the project, and the category names are rendered in a longer language?
 
-_NOTE:_ This exercise has minimal flexbox implications, and is mainly about revisiting lessons learned in the previous modules (including positioned layout and styled-components). Feel free to skip it if you'd prefer!
+![Screen recording of our site with French navigation links. They don't fit, so they spill out the side, causing a page-wide horizontal scroll.](./docs/french-nav-overflow.gif)
 
-## To be continued!
+We can do two things to make this better:
 
-Our sneaker store can flex to support different screen sizes, but there isn't a proper mobile or tablet view. Don't fret — we will revisit this workshop in a future module!
+1. Manage the overflow in the header to scroll this section when it doesn't fit.
+2. Use fluid gaps between the nav links, to reduce the likelihood that this'll be required.
 
-In the meantime, take a moment to congratulate yourself for making it through the Flexbox module!!
+Here's our goal:
+
+![Same situation, except now the spacing between items stretches and squashes depending on window width, and when the window gets too small, the content overflows with a scrollbar spanning the header](./docs/french-nav-overflow-fixed.gif)
+
+**NOTE:** Your solution doesn't have to match this GIF _exactly_. Don't worry about picking the perfect numbers! You can use the [“Fluid Calculator” tool](https://courses.joshwcomeau.com/css-for-js/05-responsive-css/16-fluid-calculator) to get close enough
+
+## Exercise 6: Theming with CSS Variables
+
+As it stands, we have a few colors in our `constants.js` file. When we want to use a color, we import and interpolate it:
+
+```jsx
+import { COLORS } from '../../constants';
+
+const Something = styled.p`
+  color: ${COLORS.gray[900]};
+`;
+```
+
+This works fine, but I personally prefer to use CSS variables for colors. It makes it a bit easier to write:
+
+```jsx
+const Something = styled.p`
+  color: var(--color-gray-900);
+`;
+```
+
+In this exercise, your goal is to update the project to use CSS variables for colors, and optionally font-weights.
+
+**BONUS:** The modal backdrop should use a CSS variable that is created using fragments from the main colors.

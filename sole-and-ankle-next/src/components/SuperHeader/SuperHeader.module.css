@@ -11,6 +11,10 @@
   height: 40px;
   padding-left: 32px;
   padding-right: 32px;
+
+  @media (max-width: 59.375rem) {
+    display: none;
+  }
 }
 
 .marketingMsg {

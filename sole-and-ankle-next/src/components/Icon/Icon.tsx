@@ -1,35 +1,40 @@
-import * as React from 'react';
+import React from 'react';
 import {
   Search,
   Menu,
   ShoppingBag,
   ChevronDown,
+  X,
 } from 'react-feather';
 import styles from './Icon.module.css';
-import clsx from 'clsx';
+
+type IconId =
+  | 'search'
+  | 'menu'
+  | 'shopping-bag'
+  | 'chevron-down'
+  | 'close';
+
+type IconProps = React.HTMLAttributes<HTMLDivElement> & {
+  id: IconId;
+  color?: string;
+  size?: number | string;
+  strokeWidth?: number;
+};
 
 const icons = {
   search: Search,
   menu: Menu,
   'shopping-bag': ShoppingBag,
   'chevron-down': ChevronDown,
-};
+  close: X,
+} as const;
 
-type IconId = 'search' | 'menu' | 'shopping-bag' | 'chevron-down';
-
-type IconProps = React.HTMLAttributes<HTMLDivElement> & {
-  id: IconId;
-  color?: string;
-  size?: number;
-  strokeWidth?: number;
-};
-
-function Icon({
+export default function Icon({
   id,
-  color = 'inherit',
-  size = 16,
-  strokeWidth = 1,
-  className,
+  color,
+  size,
+  strokeWidth,
   ...delegated
 }: IconProps) {
   const Component = icons[id];
@@ -39,14 +44,18 @@ function Icon({
   }
 
   return (
-    <div {...delegated} className={clsx(styles.wrapper, className)}>
-      <Component
-        color={color}
-        size={size}
-        strokeWidth={strokeWidth}
-      />
+    <div
+      className={styles.wrapper}
+      style={
+        { 
+          '--stroke-width': strokeWidth
+            ? `${strokeWidth}px`
+            : undefined,
+        } as React.CSSProperties
+      }
+      {...delegated}
+    >
+      <Component color={color} size={size} />
     </div>
   );
 }
-
-export default Icon;

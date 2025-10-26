@@ -2,14 +2,26 @@
   display: flex;
   flex-direction: row-reverse;
   align-items: baseline;
-  margin-top: 64px;
-  padding-left: 32px;
-  padding-right: 32px;
+  padding: 64px 32px;
   gap: 32px;
+
+  @media (max-width: 59.375rem) {
+    padding: 48px 32px;
+    flex-direction: column-reverse;
+    gap: 0;
+  }
+
+  @media (max-width: 37.5rem) {
+    padding: 48px 16px;
+  }
 }
 
 .leftColumn {
   flex-basis: 248px;
+
+  @media (max-width: 59.375rem) {
+    flex-basis: 0;
+  }
 }
 
 .mainColumn {

@@ -1,3 +1,4 @@
-.wrapper svg {
+.wrapper > svg {
   display: block;
+  stroke-width: var(--stroke-width);
 }

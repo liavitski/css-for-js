@@ -9,3 +9,9 @@
   font-size: 1.5rem;
   color: var(--color-gray-900);
 }
+
+.sortFilterWrapper {
+   @media (max-width: 37.5rem) {
+    display: none;
+  }
+}
