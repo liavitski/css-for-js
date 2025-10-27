@@ -1,27 +1,25 @@
 import * as React from 'react';
 import styles from './NavLink.module.css';
-import clsx from 'clsx';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 type NavLinkProps = React.HTMLAttributes<HTMLAnchorElement> & {
   href: string;
-  isActive?: boolean;
   children: React.ReactNode;
 };
 
-function NavLink({
-  href,
-  isActive = false,
-  children,
-  ...delegated
-}: NavLinkProps) {
+function NavLink({ href, children, ...delegated }: NavLinkProps) {
+  const pathName = usePathname();
+  const isActive = pathName === href;
+
   return (
-    <a
+    <Link
       href={href}
-      className={clsx(styles.link, { [styles.active]: isActive })}
+      className={`${styles.link} ${isActive ? styles.isActive : ''}`}
       {...delegated}
     >
       {children}
-    </a>
+    </Link>
   );
 }
 

@@ -36,14 +36,15 @@
 .mobileActions {
   display: none;
   height: 100%;
+  color: var(--color-gray-900);
 
   @media (max-width: 59.375rem) {
     display: flex;
-    gap: 32px;
+    gap: 16px;
   }
 
   @media (max-width: 37.5rem) {
-    gap: 16px;
+    gap: 8px;
   }
 }
 

@@ -8,6 +8,7 @@ import UnstyledButton from '../UnstyledButton';
 import MaxWidthWrapper from '../MaxWidthWrapper';
 import Icon from '../Icon';
 import VisuallyHidden from '../VisuallyHidden';
+import MobileMenu from '../MobileMenu';
 
 function Header() {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -22,14 +23,12 @@ function Header() {
               <Logo />
             </div>
             <nav className={styles.desktopNav}>
-              <NavLink href="/" isActive={true}>
-                Sale
-              </NavLink>
-              <NavLink href="/">New&nbsp;Releases</NavLink>
-              <NavLink href="/">Men</NavLink>
-              <NavLink href="/">Women</NavLink>
-              <NavLink href="/">Kids</NavLink>
-              <NavLink href="/">Collections</NavLink>
+              <NavLink href="/sale">Sale</NavLink>
+              <NavLink href="/new">New&nbsp;Releases</NavLink>
+              <NavLink href="/men">Men</NavLink>
+              <NavLink href="/women">Women</NavLink>
+              <NavLink href="/kids">Kids</NavLink>
+              <NavLink href="/collections">Collections</NavLink>
             </nav>
             <div className={styles.mobileActions}>
               <UnstyledButton>
@@ -42,7 +41,7 @@ function Header() {
                 <VisuallyHidden>Search</VisuallyHidden>
               </UnstyledButton>
 
-              <UnstyledButton>
+              <UnstyledButton onClick={() => setShowMobileMenu(true)}>
                 <Icon id="menu" strokeWidth={2} />
                 <VisuallyHidden>Menu</VisuallyHidden>
               </UnstyledButton>
@@ -51,6 +50,11 @@ function Header() {
           </div>
         </MaxWidthWrapper>
       </div>
+
+      <MobileMenu
+        isOpen={showMobileMenu}
+        onDismiss={() => setShowMobileMenu(false)}
+      />
     </header>
   );
 }

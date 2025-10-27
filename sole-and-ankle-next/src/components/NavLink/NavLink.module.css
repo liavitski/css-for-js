@@ -6,6 +6,6 @@
   color: var(--color-gray-900);
 }
 
-.active {
+.isActive {
   color: var(--color-secondary);
 }
